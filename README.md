@@ -1,71 +1,50 @@
-# ROS 2 Documentation
+# AVCAR - Autonomous Voice-Controlled Arm Robot
 
-This repository contains the sources for the ROS 2 documentation that is hosted at [https://docs.ros.org/en](https://docs.ros.org/en).
-The sources from this repository are built and uploaded to the site nightly by a [Jenkins job](https://build.ros.org/job/doc_ros2doc).
+AVCAR is an autonomous, voice-controlled robotic arm that processes natural language voice commands. It is designed to assist bedridden and elderly individuals with limited mobility in performing tasks such as picking and placing objects.  
 
-## Contributing to the documentation
+Powered by **ROS2(HUMBLE), Plansys2, Moveit2, Gazebo, and RViz**.
 
-Contributions to this site are most welcome.
-Please see the [Contributing to ROS 2 Documentation](https://docs.ros.org/en/rolling/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.html) page to learn more.
+---
 
-## Contributing to ROS 2
+## 📌 Requirements
 
-To contribute to the ROS 2 source code project please refer to the [ROS 2 contributing guidelines](https://docs.ros.org/en/rolling/The-ROS2-Project/Contributing.html).
+1. Download the package: [Gazebo_Ros2_Control](https://github.com/ros-controls/gazebo_ros2_control/blob/master/doc/index.rst)
+2. Download the package: [Ros2_Planning_System](https://github.com/PlanSys2/ros2_planning_system.git)
 
-## Prerequisites
+---
 
-To build this you need to install
+## 🚀 How to Run 
 
-* make
-* graphviz
+Open **5 terminals** in the following sequence:
 
-With [venv](https://docs.python.org/3/library/venv.html)
-
-```
-# activate the venv
-python3 -m venv ros2doc
-
-# activate venv
-source ros2doc/bin/activate
-
-# install required packages
-pip install -r requirements.txt -c constraints.txt
-
-# deactivate the venv
-(ros2doc) deactivate
+```bash
+ros2 launch plansys2_bt_example plansys2_bt_example_launch.py
+ros2 launch panda_ros2_moveit2 panda_interface.launch.py
+ros2 run ros2_clients actor
+ros2 run plansys2_bt_example server
+ros2 run plansys2_bt_example goalserver
+ros2 run py_pubsub talker
 ```
 
-### Pinned versions
+---
 
-For development we currently use Noble as our build platform.
-And all python versions are pinned in the constraints file to make sure that things are reproducible.
-To upgrade the system validate that things are working and then use `pip freeze > constraints.txt` to lock in the versions to upgrade.
 
-## Building HTML
+## 🎧 Commands for Voice Input  
+- **Objects Available**: `syrup`, `can`  
+- **Table Layout**: Divided into **9 grid positions** (position 1 to position 9)  
 
-### Local development test
+### **Example Commands**
+```text
+move can to position 6
+move syrup to position 9
+```
 
-For local testing of the current tree use:
+---
 
-`make html`
+## 🖥️ Demo  
+### System Architecture  
+![System Architecture](https://github.com/chytra3/AVCAR-Autonomous-Voice-Controlled-Arm-Robot/blob/ecbf2c3e2d0a15e2c81e473746e979c13d3e1741/system_architecture.jpg)  
+### Tutorial  
+[🎥 Watch the Tutorial](https://github.com/user-attachments/assets/e25855a5-3065-4b58-9640-da1dd22175ec)
 
-`sensible-browser build/html/index.html`
-
-### Spelling Check
-
-To check the spelling, use:
-
-`make spellcheck`
-
-> [!NOTE]
-> If that detects specific words that need to be ignored, add it to [codespell_whitelist](./codespell_whitelist.txt).
-
-### Deployment test
-
-To test building the multisite version deployed to the website use:
-
-`make multiversion`
-
-`sensible-browser build/html/rolling/index.html`
-
-**NB:** This will ignore local workspace changes and build from the branches.
+---
