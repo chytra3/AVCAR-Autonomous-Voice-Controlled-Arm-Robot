@@ -1,0 +1,12 @@
+string opid
+string optype
+string opcategory
+string pos
+string obj
+string cl
+float64 positionx
+float64 positiony
+float64 positionz
+float64 dimx
+float64 dimy
+float64 dimz
