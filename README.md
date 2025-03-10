@@ -47,4 +47,6 @@ move syrup to position 9
 ### Tutorial  
 [🎥 Watch the Tutorial](https://github.com/user-attachments/assets/e25855a5-3065-4b58-9640-da1dd22175ec)
 
+For Documented Result Read👉 [click](CONCLUSION.pdf)
+
 ---
