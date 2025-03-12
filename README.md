@@ -1,4 +1,4 @@
-# AVCAR - Autonomous Voice-Controlled Arm Robot
+# 🦾 AVCAR - Autonomous Voice-Controlled Arm Robot 
 
 AVCAR is an autonomous, voice-controlled robotic arm that processes natural language voice commands. It is designed to assist bedridden and elderly individuals with limited mobility in performing tasks such as picking and placing objects.  
 
